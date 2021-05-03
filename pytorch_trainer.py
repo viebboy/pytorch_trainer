@@ -32,7 +32,7 @@ class ClassifierTrainer:
 
     def __init__(self,
                  n_epoch,
-                 epoch_idx,
+                 epoch_idx=0,
                  lr_scheduler=get_cosine_lr_scheduler(1e-3, 1e-5),
                  optimizer='adam',
                  weight_decay=1e-4,
