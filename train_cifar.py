@@ -150,9 +150,10 @@ def main(argv):
     assert dataset in ['cifar10', 'cifar100']
 
     train_loader, test_loader, n_class = get_dataset(dataset)
+    model = AllCNN(n_class)
     device = torch.device('cuda')
     trainer = Trainer.ClassifierTrainer(n_epoch=200)
-    performance = trainer.fit(train_loader, None, test_loader, device)
+    performance = trainer.fit(model, train_loader, None, test_loader, device)
 
 if __name__ == "__main__":
     main(sys.argv[1:])

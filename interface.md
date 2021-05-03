@@ -51,7 +51,7 @@ Parameters:
   This parameter specifies the validation data loader. The data loader must have `__getitem__` and `__len__`.  The indexing operation `__getitem__` should return a tuple `(x, y)`, where `x` is the input and `y` is the target. If validation data is available, the accuracy measured on the validation set will be used to select the best model weight during the entire training process as the final one.   
 - **test_loader**: *iterator object*, default to None   
   This parameter specifies the validation data loader. The data loader must have `__getitem__` and `__len__`.  The indexing operation `__getitem__` should return a tuple `(x, y)`, where `x` is the input and `y` is the target  
-- **device**, *str*, available options: *{'cpu', 'cuda'}*, default to 'cpu'  
+- **device**, *obj*, default to `torch.device('cpu')`   
   This parameter specifies the computing device
 - **tensorboard_logger**: *object*, default to None  
   This parameter specifies the tensorboard object  

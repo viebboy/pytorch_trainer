@@ -39,7 +39,7 @@ class ClassifierTrainer:
                  temp_dir='',
                  checkpoint_freq=1,
                  print_freq=1,
-                 use_progress_bar=False,
+                 use_progress_bar=True,
                  test_mode=False):
 
         assert epoch_idx < n_epoch,\
@@ -71,7 +71,15 @@ class ClassifierTrainer:
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir, exist_ok=True)
 
-    def fit(self, model, train_loader, val_loader=None, test_loader=None, device='cpu', tensorboard_logger=None, logger_prefix=''):
+    def fit(self,
+            model,
+            train_loader,
+            val_loader=None,
+            test_loader=None,
+            device=torch.device('cpu'),
+            tensorboard_logger=None,
+            logger_prefix=''):
+
         self.prepare_temp_dir()
         self.start_time = time.time()
         n_epoch_done = 0
@@ -402,7 +410,7 @@ class RegressionTrainer(ClassifierTrainer):
                  temp_dir='',
                  checkpoint_freq=1,
                  print_freq=1,
-                 use_progress_bar=False,
+                 use_progress_bar=True,
                  test_mode=False):
 
         super(RegressionTrainer, self).__init__(n_epoch,
