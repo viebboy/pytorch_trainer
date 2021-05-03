@@ -113,18 +113,18 @@ def get_dataset(dataset):
          transforms.Normalize(mean, std)])
 
     if dataset == 'cifar10':
-        trainset = torchvision.datasets.CIFAR10(root='../data', train=True,
+        trainset = torchvision.datasets.CIFAR10(root='.', train=True,
                                                 download=True, transform=train_transform)
 
-        testset = torchvision.datasets.CIFAR10(root='../data', train=False,
+        testset = torchvision.datasets.CIFAR10(root='.', train=False,
                                                download=True, transform=test_transform)
 
         n_class = 10
     else:
-        trainset = torchvision.datasets.CIFAR100(root='../data', train=True,
+        trainset = torchvision.datasets.CIFAR100(root='.', train=True,
                                                 download=True, transform=train_transform)
 
-        testset = torchvision.datasets.CIFAR100(root='../data', train=False,
+        testset = torchvision.datasets.CIFAR100(root='.', train=False,
                                                download=True, transform=test_transform)
         n_class = 100
 
